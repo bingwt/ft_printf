@@ -6,12 +6,13 @@
 /*   By: btan <btan@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:02:33 by btan              #+#    #+#             */
-/*   Updated: 2023/09/18 14:20:44 by btan             ###   ########.fr       */
+/*   Updated: 2023/09/19 17:37:50 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 int	main()
 {
@@ -30,6 +31,7 @@ int	main()
 			case 'c':
 				printf("Real: %c\n", *str);
 				printf("Faux: %c\n", *str);
+				printf("Comp: %d\n", strcmp(str, "h"));
 				break ;
 			case 's':
 				printf("Real: %s\n", str);
@@ -69,7 +71,7 @@ int	main()
 				printf("Faux: %c\n", *str);
 				printf("\n%%s - String Format:\n");
 				printf("Real: %s\n", str);
-				printf("Faux: %s\n", str);
+				printf("Falibftprintf.aux: %s\n", str);
 				printf("\n%%p - Pointer Format:\n");
 				printf("Real: %p\n", str);
 				printf("Faux: %p\n", str);

@@ -10,33 +10,63 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <ft_printf.h>
+#include "includes/ft_printf.h"
 
-static int	va_argc()
+static void dec_to_hex(int n)
 {
-	int	argc;
-
-	argc = 0;
-	while (*str)
+	if (n > 16)
 	{
-		if (ft_strchr("%", *str))
-			argc++;
-		ptr++;
+		dec_to_hex(n / 16);
+		dec_to_hex(n % 16);
 	}
+	else
+		ft_putchar_fd("0123456789abcdef"[n], 1);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	char	*ptr;
-	int	pos;
-	//va_list lst;
+	va_list lst;
+	int	i;
 
-	//va_start(lst, str);
-
-	//va_end(lst);
-
-	ptr = str;
-	pos = ft_strchr(ptr, '%') - str;
-	return (pos);
+	va_start(lst, str);
+	i = 0;
+	while (str[i])
+		if (str[i] == '%')
+		{
+			i++;
+			if (str[i] == 'c')
+			{
+				ft_putchar_fd(va_arg(lst, int), 1);
+				i++;
+			}
+			else if (str[i] == 's')
+			{
+				ft_putstr_fd(va_arg(lst, char *), 1);
+				i++;
+			}
+			else if (str[i] == 'p')
+			{
+				dec_to_hex((unsigned long) va_arg(lst, void *));
+				i++;
+			}
+			else if (str[i] == 'd' || str[i] == 'i')
+			{
+				ft_putnbr_fd(va_arg(lst, int), 1);
+				i++;
+			}
+			else if (str[i] == 'x' || str[i] == 'X')
+			{
+				dec_to_hex(va_arg(lst, int));
+				i++;
+			}
+			else if (str[i] == '%')
+			{
+				ft_putchar_fd('%', 1);
+				i++;
+			}
+		}
+		else
+			ft_putchar_fd(str[i++], 1);
+	va_end(lst);
+	return (i);
 }

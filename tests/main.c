@@ -10,4 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/ft_printf.h"
+#include <stdio.h>
+
 int	main()
+{
+	ft_printf("Hello World\n");
+	ft_printf("Hello %cWorld\n", 'W');
+	ft_printf("Hello %cWorld%s\n", 'W', " 123");
+	ft_printf("Hello %cWorld%s %d\n", 'W', " 123", 456);
+	ft_printf("Hello %cWorld%s %d%i\n", 'W', " 123", 456, -789);
+	printf("Hello %cWorld%s %d%i%x\n", 'W', " 123", 456, -789, 10);
+	ft_printf("Hello %cWorld%s %d%i%x\n", 'W', " 123", 456, -789, 10);
+	ft_printf("Hello %cWorld%s %d%i%x %X\n", 'W', " 123", 456, -789, 10, 10);
+	ft_printf("%%%%\n");
+}

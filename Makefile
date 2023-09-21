@@ -34,4 +34,11 @@ fclean: clean
 
 re: fclean all
 
+test:
+	$(CC) tests/main.c -L -l $(NAME) -L libft/-l libft/libft.a
+run:
+	clear && ./a.out
+tester:
+	$(CC) tests/test_printf.c -L -l $(NAME) -L libft/-l libft/libft.a -o tester && ./tester
+
 .PHONY: all clean fclean re

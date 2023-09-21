@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "../includes/ft_printf.h"
 
 int	main()
 {
@@ -24,76 +25,83 @@ int	main()
 	{
 		printf("Enter format: ");
 		scanf(" %c", &fmt);
-		printf("Enter string: ");
+		ft_printf("Enter string: ");
 		scanf("%s", str);
 		switch (fmt)
 		{
 			case 'c':
 				printf("Real: %c\n", *str);
-				printf("Faux: %c\n", *str);
-				printf("Comp: %d\n", strcmp(str, "h"));
+				ft_printf("Faux: %c\n", *str);
 				break ;
 			case 's':
 				printf("Real: %s\n", str);
-				printf("Faux: %s\n", str);
+				ft_printf("Faux: %s\n", str);
 				break ;
 			case 'p':
 				printf("Real: %p\n", str);
-				printf("Faux: %p\n", str);
+				ft_printf("Faux: %p\n", str);
 				break ;
 			case 'd':
-				printf("Real: %d\n", str);
-				printf("Faux: %d\n", str);
+				printf("Real: %d\n", atoi(str));
+				ft_printf("Faux: %d\n", atoi(str));
 				break ;
 			case 'i':
 				printf("Real: %i\n", str);
-				printf("Faux: %i\n", str);
+				ft_printf("Faux: %i\n", atoi(str));
 				break ;
 			case 'u':
 				printf("Real: %u\n", str);
-				printf("Faux: %u\n", str);
+				ft_printf("Faux: %u\n", str);
 				break ;
 			case 'x':
-				printf("Real: %x\n", str);
-				printf("Faux: %x\n", str);
+				printf("Real: %x\n", atoi(str));
+				ft_printf("Faux: %x\n", atoi(str));
 				break ;
 			case 'X':
-				printf("Real: %X\n", str);
-				printf("Faux: %X\n", str);
+				printf("Real: %X\n", atoi(str));
+				ft_printf("Faux: %X\n", atoi(str));
 				break ;
 			case '%':
 				printf("Real: %%\n");
-				printf("Faux: %%\n");
+				ft_printf("Faux: %%\n");
 				break ;
 			case 'a':
 				printf("%%c - Character Format:\n");
 				printf("Real: %c\n", *str);
-				printf("Faux: %c\n", *str);
+				ft_printf("Faux: %c\n", *str);
+
 				printf("\n%%s - String Format:\n");
 				printf("Real: %s\n", str);
-				printf("Falibftprintf.aux: %s\n", str);
+				ft_printf("Faux: %s\n", str);
+
 				printf("\n%%p - Pointer Format:\n");
 				printf("Real: %p\n", str);
-				printf("Faux: %p\n", str);
+				ft_printf("Faux: %p\n", str);
+
 				printf("\n%%d - Decimal Format:\n");
-				printf("Real: %d\n", str);
-				printf("Faux: %d\n", str);
+				printf("Real: %d\n", atoi(str));
+				ft_printf("Faux: %d\n", atoi(str));
+
 				printf("\n%%i - Integer Format:\n");
-				printf("Real: %i\n", str);
-				printf("Faux: %i\n", str);
+				printf("Real: %i\n", atoi(str));
+				ft_printf("Faux: %i\n", atoi(str));
+
 				printf("\n%%u - Unsigned Decimal Format:\n");
-				printf("Real: %u\n", str);
-				printf("Faux: %u\n", str);
+				printf("Real: %u\n", atoi(str));
+				ft_printf("Faux: %u\n", atoi(str));
+
 				printf("\n%%x Hexadecimal Format (Lowercase):\n");
-				printf("Real: %x\n", str);
-				printf("Faux: %x\n", str);
+				printf("Real: %x\n", atoi(str));
+				ft_printf("Faux: %x\n", atoi(str));
+
 				printf("\n%%X Hexadecimal Format (Uppercase):\n");
-				printf("Real: %X\n", str);
-				printf("Faux: %X\n", str);
+				printf("Real: %X\n", atoi(str));
+				ft_printf("Faux: %X\n", atoi(str));
+
 				printf("\nPrint %% sign:\n");
-				printf("Real: %%\n");
-				printf("Faux: %%\n");
-				break;
+				printf("Real: %%%\n");
+				ft_printf("Faux: %%%\n");
+				break ;
 			default:
 				printf("Invalid Input!!!\n");
 				break ;

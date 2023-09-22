@@ -2,3 +2,4 @@
 *.out
 *.o
 *.a
+ft_printf_tester

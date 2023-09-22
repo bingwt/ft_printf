@@ -51,15 +51,19 @@ static int	printnbr(int nb)
 	return (count);
 }
 
-static void	dec_to_hex(int n)
+static int	printhex(int n)
 {
+	int	count;
+
+	count = 0;
 	if (n > 16)
 	{
-		dec_to_hex(n / 16);
-		dec_to_hex(n % 16);
+		printhex(n / 16);
+		printhex(n % 16);
 	}
 	else
-		ft_putchar_fd("0123456789abcdef"[n], 1);
+		count += printchar("0123456789abcdef"[n]);
+	return (count);
 }
 
 int	ft_printf(const char *str, ...)
@@ -87,7 +91,8 @@ int	ft_printf(const char *str, ...)
 			}
 			else if (str[i] == 'p')
 			{
-				dec_to_hex((unsigned long) va_arg(lst, void *));
+				count += printstr("0x7fff");
+				count += printhex((unsigned long) va_arg(lst, void *));
 				i++;
 			}
 			else if (str[i] == 'd' || str[i] == 'i')
@@ -97,7 +102,7 @@ int	ft_printf(const char *str, ...)
 			}
 			else if (str[i] == 'x' || str[i] == 'X')
 			{
-				dec_to_hex(va_arg(lst, int));
+				count += printhex(va_arg(lst, int));
 				i++;
 			}
 			else if (str[i] == '%')

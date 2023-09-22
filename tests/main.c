@@ -45,9 +45,13 @@ int	main()
 	//ft_printf(" %c %c %c ", 0, '1', '2');
 	//ft_printf("\n");
 	//printf("%d\n", ft_printf(" %s ", "-"));
-	printf("%d\n", printf(" NULL %s NULL ", NULL));
-	ft_printf("\n");
-	printf("%d\n", ft_printf(" NULL %s NULL ", NULL));
+	//printf("%d\n", printf(" NULL %s NULL ", NULL));
+	//ft_printf("\n");
+	//printf("%d\n", ft_printf(" NULL %s NULL ", NULL));
 	//printf("%d\n", printf("%c",NULL));
 	//ft_printf("\n");
+	printf("%c\n", printf(" %p ", -1));
+	ft_printf("\n");
+	printf("%c\n", ft_printf(" %p ", -1));
+	ft_printf("\n");
 }

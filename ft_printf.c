@@ -12,7 +12,46 @@
 
 #include "includes/ft_printf.h"
 
-static void dec_to_hex(int n)
+static int	printchar(int c)
+{
+	write(1, &c, 1);
+	return (1);
+}
+
+static int	printstr(char *str)
+{
+	int	count;
+
+	count = 0;
+	if (!str)
+		str = "(null)";
+	while (*str)
+		count += printchar(*(str++));
+	return (count);
+}
+
+static int	printnbr(int nb)
+{
+	size_t	nbr;
+	int	count;
+
+	count = 0;
+	if (nb < 0)
+	{
+		count += printchar('-');
+		nb = -nb;
+	}
+	nbr = nb;
+	if (nbr > 9)
+	{
+		printnbr(nbr / 10);
+		nbr %= 10;
+	}
+	count += printchar('0' + nbr);
+	return (count);
+}
+
+static void	dec_to_hex(int n)
 {
 	if (n > 16)
 	{
@@ -27,21 +66,23 @@ int	ft_printf(const char *str, ...)
 {
 	va_list lst;
 	int	i;
+	int	count;
 
 	va_start(lst, str);
 	i = 0;
+	count = 0;
 	while (str[i])
 		if (str[i] == '%')
 		{
 			i++;
 			if (str[i] == 'c')
 			{
-				ft_putchar_fd(va_arg(lst, int), 1);
+				count += printchar((unsigned char) va_arg(lst, int));
 				i++;
 			}
 			else if (str[i] == 's')
 			{
-				ft_putstr_fd(va_arg(lst, char *), 1);
+				count += printstr(va_arg(lst, char *));
 				i++;
 			}
 			else if (str[i] == 'p')
@@ -51,7 +92,7 @@ int	ft_printf(const char *str, ...)
 			}
 			else if (str[i] == 'd' || str[i] == 'i')
 			{
-				ft_putnbr_fd(va_arg(lst, int), 1);
+				count += printnbr(va_arg(lst, int));
 				i++;
 			}
 			else if (str[i] == 'x' || str[i] == 'X')
@@ -61,12 +102,12 @@ int	ft_printf(const char *str, ...)
 			}
 			else if (str[i] == '%')
 			{
-				ft_putchar_fd('%', 1);
+				count += printchar('%');
 				i++;
 			}
 		}
 		else
-			ft_putchar_fd(str[i++], 1);
+			count += printchar(str[i++]);
 	va_end(lst);
-	return (i);
+	return (count);
 }

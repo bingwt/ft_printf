@@ -12,7 +12,8 @@
 
 NAME = libftprintf.a
 
-SRCS =  ft_printf.c \
+SRCS =  libft/ft_putchar_fd.c libft/ft_putstr_fd.c libft/ft_putnbr_fd.c \
+	ft_printf.c \
 
 CC = cc
 
@@ -35,10 +36,10 @@ fclean: clean
 re: fclean all
 
 test:
-	$(CC) tests/main.c -L -l $(NAME) -L libft/-l libft/libft.a
+	$(CC) tests/main.c -L -l $(NAME)
 run:
 	clear && ./a.out
 tester:
-	$(CC) tests/test_printf.c -L -l $(NAME) -L libft/-l libft/libft.a -o tester && ./tester
+	$(CC) tests/test_printf.c -L -l $(NAME) -o tester && ./tester && rm tester
 
 .PHONY: all clean fclean re

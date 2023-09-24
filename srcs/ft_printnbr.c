@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printnbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btan <btan@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: btan <btan@student.42.singapore.sg>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 16:41:29 by btan              #+#    #+#             */
-/*   Updated: 2023/09/24 12:36:20 by btan             ###   ########.fr       */
+/*   Created: 2023/09/24 11:19:37 by btan              #+#    #+#             */
+/*   Updated: 2023/09/24 11:26:00 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "../includes/ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+int	ft_printnbr(int nb)
 {
-	va_list lst;
-	int	i;
+	size_t	nbr;
 	int	count;
 
-	va_start(lst, str);
-	i = 0;
 	count = 0;
-	while (str[i])
-		if (*str == '%')
-			ft_printformat(*(str++), lst);
-		else
-			count += ft_printchar(*(str++));
-	va_end(lst);
+	if (nb < 0)
+	{
+		count += ft_printchar('-');
+		nb = -nb;
+	}
+	nbr = nb;
+	if (nbr > 9)
+	{
+		ft_printnbr(nbr / 10);
+		nbr = nbr % 10;
+	}
+	count += ft_printchar('0' + nbr);
 	return (count);
 }

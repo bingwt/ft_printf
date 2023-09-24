@@ -6,7 +6,7 @@
 /*   By: btan <btan@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 17:04:27 by btan              #+#    #+#             */
-/*   Updated: 2023/09/19 17:07:13 by btan             ###   ########.fr       */
+/*   Updated: 2023/09/24 13:07:14 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include "../libft/libft.h"
 
+int	ft_printchar(int c);
+int	ft_printstr(char *str);
+int	ft_printnbr(int nb);
+int	ft_printhex(int n, ...);
+int	ft_printformat(int fmt, va_list lst);
 int	ft_printf(const char *str, ...);
 
 #endif

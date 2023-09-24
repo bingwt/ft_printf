@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btan <btan@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: btan <btan@student.42.singapore.sg>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 16:41:29 by btan              #+#    #+#             */
-/*   Updated: 2023/09/24 12:36:20 by btan             ###   ########.fr       */
+/*   Created: 2023/09/24 11:17:44 by btan              #+#    #+#             */
+/*   Updated: 2023/09/24 11:25:39 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "../includes/ft_prinf.h"
 
-int	ft_printf(const char *str, ...)
+int	ft_printstr(char *str)
 {
-	va_list lst;
-	int	i;
 	int	count;
 
-	va_start(lst, str);
-	i = 0;
 	count = 0;
-	while (str[i])
-		if (*str == '%')
-			ft_printformat(*(str++), lst);
-		else
-			count += ft_printchar(*(str++));
-	va_end(lst);
+	if (!str)
+		str = "(null)";
+	while (*str)
+		count += ft_printchar(*(str++));
 	return (count);
 }

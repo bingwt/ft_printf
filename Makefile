@@ -6,13 +6,14 @@
 #    By: btan <btan@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/19 16:19:33 by btan              #+#    #+#              #
-#    Updated: 2023/09/19 16:21:39 by btan             ###   ########.fr        #
+#    Updated: 2023/09/24 12:35:17 by btan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRCS =  libft/ft_putchar_fd.c libft/ft_putstr_fd.c libft/ft_putnbr_fd.c \
+SRCS =  srcs/ft_printchar.c srcs/ft_printstr.c srcs/ft_printnbr.c \
+	srcs/ft_printhex.c srcs/ft_printformat.c \
 	ft_printf.c \
 
 CC = cc

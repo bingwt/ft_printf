@@ -6,7 +6,7 @@
 #    By: btan <btan@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/19 16:19:33 by btan              #+#    #+#              #
-#    Updated: 2023/09/24 12:35:17 by btan             ###   ########.fr        #
+#    Updated: 2023/09/24 14:38:12 by btan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS =  srcs/ft_printchar.c srcs/ft_printstr.c srcs/ft_printnbr.c \
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 OBJECTS = $(SRCS:.c=.o)
 

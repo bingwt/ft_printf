@@ -6,7 +6,7 @@
 /*   By: btan <btan@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:02:33 by btan              #+#    #+#             */
-/*   Updated: 2023/09/19 17:37:50 by btan             ###   ########.fr       */
+/*   Updated: 2023/09/24 15:20:45 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main()
 				ft_printf("Faux: %d\n", atoi(str));
 				break ;
 			case 'i':
-				printf("Real: %i\n", str);
+				printf("Real: %i\n", atoi(str));
 				ft_printf("Faux: %i\n", atoi(str));
 				break ;
 			case 'u':

@@ -6,31 +6,20 @@
 /*   By: btan <btan@student.42.singapore.sg>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 11:26:37 by btan              #+#    #+#             */
-/*   Updated: 2023/09/24 14:29:20 by btan             ###   ########.fr       */
+/*   Updated: 2023/09/24 15:52:17 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_printhex(int n, ...)
+int	ft_printhex(int n, char *base)
 {
-	va_list	lst;
-	int	count;
-
-	va_start(lst, n);
-	count = 0;
 	if (n > 16)
 	{
-		ft_printhex(n / 16);
-		ft_printhex(n % 16);
+		ft_printhex(n / 16, base);
+		ft_printhex(n % 16, base);
 	}
 	else
-	{
-		if (va_arg(lst, int) == 'X')
-			count += ft_printchar("0123456789ABCDEF"[n]);
-		else
-			count += ft_printchar("0123456789abcdef"[n]);
-	}
-	return (count);
-	va_end(lst);
+		return (ft_printchar(base[n]));
+	return (0);
 }

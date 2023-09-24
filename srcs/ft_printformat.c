@@ -6,7 +6,7 @@
 /*   By: btan <btan@student.42.singapore.sg>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 11:39:19 by btan              #+#    #+#             */
-/*   Updated: 2023/09/24 14:37:19 by btan             ###   ########.fr       */
+/*   Updated: 2023/09/24 15:50:34 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,17 @@
 
 int	ft_printformat(int fmt, va_list lst)
 {
-	int	count;
-
-	count = 0;
 	if (fmt == 'c')
-		count += ft_printchar(va_arg(lst, int));
-	else if (fmt == 's')
-		count += ft_printstr(va_arg(lst, char *));
-	else if (fmt == 'p')
-		count += ft_printhex((unsigned long long) va_arg(lst, void *));
-	else if (fmt == 'd' || fmt == 'i')
-		count += ft_printnbr(va_arg(lst, int));
-	else if (fmt == 'x' || fmt == 'X')
-		count += ft_printhex(va_arg(lst, int), fmt);
-	else if (fmt == '%')
-		count += ft_printchar(fmt);
-	return (count);
+		return (ft_printchar(va_arg(lst, int)));
+	if (fmt == 's')
+		return (ft_printstr(va_arg(lst, char *)));
+	if (fmt == 'p' || fmt == 'x')
+		return (ft_printhex((unsigned long long) va_arg(lst, void *), "0123456789abcdef"));
+	if (fmt == 'd' || fmt == 'i')
+		return (ft_printnbr(va_arg(lst, int)));
+	if (fmt == 'X')
+		return (ft_printhex(va_arg(lst, int), "0123456789ABCDEF"));
+	if (fmt == '%')
+		return (ft_printchar(fmt));
+	return (0);
 }
-

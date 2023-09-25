@@ -6,11 +6,11 @@
 /*   By: btan <btan@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:41:29 by btan              #+#    #+#             */
-/*   Updated: 2023/09/25 13:06:32 by btan             ###   ########.fr       */
+/*   Updated: 2023/09/25 13:59:23 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "includes/ft_printf.h"
 
 int	ft_printf(const char *str, ...)
 {

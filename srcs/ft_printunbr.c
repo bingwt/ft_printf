@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printhex.c                                      :+:      :+:    :+:   */
+/*   ft_printunbr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btan <btan@student.42.singapore.sg>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/24 11:26:37 by btan              #+#    #+#             */
-/*   Updated: 2023/09/25 11:23:14 by btan             ###   ########.fr       */
+/*   Created: 2023/09/25 11:43:59 by btan              #+#    #+#             */
+/*   Updated: 2023/09/25 11:45:47 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_printhex(unsigned int n, char *base)
+int	ft_printunbr(unsigned int nb)
 {
-	if (n > 15)
-		ft_printhex(n / 16, base);
-	return (ft_printchar(base[n % 16]));
+	int	count;
+
+	count = 0;
+	if (nb > 9)
+	{
+		ft_printunbr(nb / 10);
+		nb = nb % 10;
+	}
+	count += ft_printchar('0' + nb);
+	return (count);
 }

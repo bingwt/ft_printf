@@ -6,7 +6,7 @@
 /*   By: btan <btan@student.42.singapore.sg>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 11:39:19 by btan              #+#    #+#             */
-/*   Updated: 2023/09/24 16:52:50 by btan             ###   ########.fr       */
+/*   Updated: 2023/09/25 11:45:19 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,16 @@ int	ft_printformat(int fmt, va_list lst)
 	if (fmt == 'p')
 	{
 		count += ft_printstr("0x");
-		count += ft_printhex((unsigned long long) va_arg(lst, void *), "0123456789abcdef");
+		count += ft_printaddress(va_arg(lst, unsigned long long), "0123456789abcdef");
 	}
 	if (fmt == 'd' || fmt == 'i')
 		count += ft_printnbr(va_arg(lst, int));
+	if (fmt == 'u')
+		count += ft_printunbr(va_arg(lst, unsigned int));
 	if (fmt == 'x')
-		count += ft_printhex(va_arg(lst, int), "0123456789abcdef");
+		count += ft_printhex(va_arg(lst, long), "0123456789abcdef");
 	if (fmt == 'X')
-		count += ft_printhex(va_arg(lst, int), "0123456789ABCDEF");
+		count += ft_printhex(va_arg(lst, long), "0123456789ABCDEF");
 	if (fmt == '%')
 		count += ft_printchar(fmt);
 	return (count);

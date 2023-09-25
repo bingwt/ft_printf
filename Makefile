@@ -6,14 +6,19 @@
 #    By: btan <btan@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/19 16:19:33 by btan              #+#    #+#              #
-#    Updated: 2023/09/24 14:38:12 by btan             ###   ########.fr        #
+#    Updated: 2023/09/25 11:45:33 by btan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRCS =  srcs/ft_printchar.c srcs/ft_printstr.c srcs/ft_printnbr.c \
-	srcs/ft_printhex.c srcs/ft_printformat.c \
+SRCS =  srcs/ft_printchar.c \
+	srcs/ft_printstr.c \
+	srcs/ft_printnbr.c \
+	srcs/ft_printunbr \
+	srcs/ft_printhex.c \
+	srcs/ft_printaddress.c \
+	srcs/ft_printformat.c \
 	ft_printf.c \
 
 CC = cc
@@ -29,7 +34,7 @@ $(NAME): $(OBJECTS)
 	ar -rc $(NAME) $(OBJECTS)
 
 clean:
-	rm -rf $(OBJECTS) $(BONUS_OBJECTS)
+	rm -rf $(OBJECTS)
 
 fclean: clean
 	rm -rf $(NAME)

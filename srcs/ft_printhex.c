@@ -6,13 +6,13 @@
 /*   By: btan <btan@student.42.singapore.sg>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 11:26:37 by btan              #+#    #+#             */
-/*   Updated: 2023/09/25 11:23:14 by btan             ###   ########.fr       */
+/*   Updated: 2023/09/25 13:20:12 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_printhex(unsigned int n, char *base)
+int	ft_printhex(void n, char *base)
 {
 	if (n > 15)
 		ft_printhex(n / 16, base);

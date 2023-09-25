@@ -3,3 +3,4 @@
 *.o
 *.a
 ft_printf_tester
+tests

@@ -6,7 +6,7 @@
 /*   By: btan <btan@student.42.singapore.sg>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 11:26:37 by btan              #+#    #+#             */
-/*   Updated: 2023/09/25 13:59:10 by btan             ###   ########.fr       */
+/*   Updated: 2023/09/26 08:28:27 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 int	ft_printhex(unsigned int n, char *base)
 {
+	int	count;
+
+	count = 0;
 	if (n > 15)
-		ft_printhex(n / 16, base);
-	return (ft_printchar(base[n % 16]));
+		count += ft_printhex(n / 16, base);
+	count += ft_printchar(base[n % 16]);
+	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: btan <btan@student.42.singapore.sg>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 20:34:06 by btan              #+#    #+#             */
-/*   Updated: 2023/09/25 13:14:20 by btan             ###   ########.fr       */
+/*   Updated: 2023/09/26 08:45:02 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 int	ft_printaddress(unsigned long long n, char *base)
 {
+	int	count;
+
+	count = 0;
+
+	if (n == 0)
+		count += ft_printstr("(nil)");
 	if (n > 15)
-		ft_printaddress(n / 16, base);
-	return (ft_printchar(base[n % 16]));
+		count += ft_printaddress(n / 16, base);
+	count += ft_printchar(base[n % 16]);
+	return (count);
 }

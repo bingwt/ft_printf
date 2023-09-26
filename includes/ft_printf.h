@@ -6,7 +6,7 @@
 /*   By: btan <btan@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 17:04:27 by btan              #+#    #+#             */
-/*   Updated: 2023/09/25 12:43:52 by btan             ###   ########.fr       */
+/*   Updated: 2023/09/26 08:48:38 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 int	ft_printchar(int c);
 int	ft_printstr(char *str);
 int	ft_printnbr(int nb);
+int	ft_printunbr(unsigned int nb);
 int	ft_printhex(unsigned int n, char *base);
 int	ft_printaddress(unsigned long long n, char *base);
 int	ft_printformat(int fmt, va_list lst);

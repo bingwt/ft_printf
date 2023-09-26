@@ -6,7 +6,7 @@
 #    By: btan <btan@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/19 16:19:33 by btan              #+#    #+#              #
-#    Updated: 2023/09/25 13:21:39 by btan             ###   ########.fr        #
+#    Updated: 2023/09/26 08:49:28 by btan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = libftprintf.a
 SRCS =  srcs/ft_printchar.c \
 	srcs/ft_printstr.c \
 	srcs/ft_printnbr.c \
+	srcs/ft_printunbr.c \
 	srcs/ft_printhex.c \
 	srcs/ft_printaddress.c \
 	srcs/ft_printformat.c \

@@ -6,7 +6,7 @@
 /*   By: btan <btan@student.42.singapore.sg>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 11:19:37 by btan              #+#    #+#             */
-/*   Updated: 2023/09/24 11:26:00 by btan             ###   ########.fr       */
+/*   Updated: 2023/09/26 08:25:46 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int	ft_printnbr(int nb)
 {
-	size_t	nbr;
+	long	nbr;
 	int	count;
 
 	count = 0;
-	if (nb < 0)
+	nbr = nb;
+	if (nbr < 0)
 	{
 		count += ft_printchar('-');
-		nb = -nb;
+		nbr = -nbr;
 	}
-	nbr = nb;
 	if (nbr > 9)
 	{
-		ft_printnbr(nbr / 10);
+		count += ft_printnbr(nbr / 10);
 		nbr = nbr % 10;
 	}
 	count += ft_printchar('0' + nbr);

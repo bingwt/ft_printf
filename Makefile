@@ -6,7 +6,7 @@
 #    By: btan <btan@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/19 16:19:33 by btan              #+#    #+#              #
-#    Updated: 2023/09/26 09:33:33 by btan             ###   ########.fr        #
+#    Updated: 2023/09/26 09:41:59 by btan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,10 @@ OBJECTS = $(SRCS:.c=.o)
 
 all: $(NAME) 
 
+.c.o:
+	$(CC) -c $< -o $(<:.c=.o)
+
 $(NAME): $(OBJECTS)
-	$(CC) $(CFLAGS) -c $(SRCS)
 	ar -rc $(NAME) $(OBJECTS)
 
 clean:

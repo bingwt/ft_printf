@@ -6,7 +6,7 @@
 #    By: btan <btan@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/19 16:19:33 by btan              #+#    #+#              #
-#    Updated: 2023/09/26 08:49:28 by btan             ###   ########.fr        #
+#    Updated: 2023/09/26 09:33:33 by btan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS =  srcs/ft_printchar.c \
 	srcs/ft_printhex.c \
 	srcs/ft_printaddress.c \
 	srcs/ft_printformat.c \
-	ft_printf.c \
+	srcs/ft_printf.c \
 
 CC = cc
 
@@ -28,9 +28,9 @@ CFLAGS = -Wall -Werror -Wextra -g
 OBJECTS = $(SRCS:.c=.o)
 
 all: $(NAME) 
-	$(CC) $(CFLAGS) -c $(SRCS)
 
 $(NAME): $(OBJECTS)
+	$(CC) $(CFLAGS) -c $(SRCS)
 	ar -rc $(NAME) $(OBJECTS)
 
 clean:

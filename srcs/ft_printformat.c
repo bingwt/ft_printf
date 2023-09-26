@@ -6,7 +6,7 @@
 /*   By: btan <btan@student.42.singapore.sg>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 11:39:19 by btan              #+#    #+#             */
-/*   Updated: 2023/09/26 09:29:08 by btan             ###   ########.fr       */
+/*   Updated: 2023/09/26 10:09:26 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_printformat(int fmt, va_list lst)
 	if (fmt == 's')
 		count += ft_printstr(va_arg(lst, char *));
 	if (fmt == 'p')
-		count += ft_printaddress(va_arg(lst, unsigned long), "0123456789abcdef");
+		count += ft_printp(va_arg(lst, unsigned long), "0123456789abcdef");
 	if (fmt == 'd' || fmt == 'i')
 		count += ft_printnbr(va_arg(lst, int));
 	if (fmt == 'u')

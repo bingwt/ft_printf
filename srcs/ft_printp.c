@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printaddress.c                                  :+:      :+:    :+:   */
+/*   ft_printp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btan <btan@student.42.singapore.sg>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/24 20:34:06 by btan              #+#    #+#             */
-/*   Updated: 2023/09/26 09:20:29 by btan             ###   ########.fr       */
+/*   Created: 2023/09/26 10:08:56 by btan              #+#    #+#             */
+/*   Updated: 2023/09/26 10:08:58 by btan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_printaddress(unsigned long long n, char *base)
+int	ft_printp(unsigned long long n, char *base)
 {
 	int	count;
 
